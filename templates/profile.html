@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block image%}
+url('https://docs.google.com/uc?export=download&id=1H1UB9ysxpwBPEsbSUhdzjw1x4Fvc6o92')
+{% endblock image%}
+
+{% block body %}
+    <div>
+        <div class="profile_container">
+            <p>Username : {{ user.username }}</p>
+            <p>Email : {{user.email}}</p>
+        </div>
+    </div>
+{% endblock body %}

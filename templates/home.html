@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title%} Blogger {% endblock title%}
+
+{% block image%} url('{{background}}') {% endblock image%}
+
+{% block heading%}Blogger{% endblock heading%}
+
+{% block body %}
+<!--
+	<section class="title" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('{{background}}');">
+		<div class="title-text">
+			<h1 style="font-size: 80px;">Finding Focus</h1>
+		</div>
+	</section>
+-->
+
+	<div class="post-content">
+		<section>
+		{% for post in posts %}
+			<div class="post">
+				<a href='/blog/{{post.title}}'> {{post.title}} </a>
+				<p class="date">Posted by {{post.user}} on {{post.date}}</p>
+			</div>			
+			<hr>
+		{% endfor %}
+		</section>
+    </div>
+	<hr style="width: 100%;">
+
+{% endblock body %}

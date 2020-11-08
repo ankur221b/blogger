@@ -1,0 +1,85 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title%}{% endblock title%}</title>
+	<link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/8327b10ac1.js" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap" rel="stylesheet">	
+	{% block head %} {% endblock head %}
+</head>
+<body>
+
+	<div class="title" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),{% block image%} {% endblock image%};" >
+
+		<nav>
+			<ul>
+				<form action="/search/", method="GET">
+				<li class="search-icon">
+				  
+		          <input type="search" placeholder="Search" name="search_term">
+		          <button class="search-button"> 
+		          	<label class="icon">
+		            	<span class="fas fa-search"></span>
+		          	</label>
+		          </button>
+		          
+		        </li>
+		        </form>
+
+				<li>
+					<a href="/">HOME</a>
+				</li>
+
+				{% if request.user.is_authenticated == False %}
+				    <li class="nav-item">
+				        <a class="nav-link" href="/login">LOG IN</a>
+				    </li>
+				{% endif %}
+
+				{% if request.user.is_authenticated == True %}
+				    <li class="nav-item">
+				        <a class="nav-link" href="/profile">PROFILE</a>
+				    </li>
+				    <li class="nav-item">
+				        <a class="nav-link" href="/logout">LOG OUT</a>
+				    </li>
+				{% endif %}
+
+				<li>
+					<a href="#">ABOUT</a>
+				</li>
+
+				<li>
+					<a href="#">CONTACT</a>
+				</li>
+				
+				{% if request.user.is_authenticated == True %}
+				<li>
+					<a href="/new_blog">NEW BLOG</a>
+				</li>
+				{% endif %}
+			</ul>
+		</nav>
+
+		<div class="title-text">
+			<h1 style="font-size: 65px;">
+				{% block heading%}{% endblock heading%}
+			</h1>				
+		</div>
+	</div>
+
+	{% block body%}
+	{% endblock body %}
+
+
+	<footer class="foot">
+		<a style="color:inherit;" href="https://github.com/ankur221b" target="_blank"><i class="fab fa-github" id="github"></i></a>
+		<i class="fab fa-facebook" id="fb"></i>
+		<i class="fab fa-linkedin" id="linkedin"></i>	
+	</footer>
+
+</body>
+</html>

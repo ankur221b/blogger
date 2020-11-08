@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title%} Blogger {% endblock title%}
+
+{% block image %} url('{{background}}') {% endblock image %}
+
+{% block heading %} {{posts.title}} {% endblock heading %}
+
+<!--
+
+	<section class="title" style="background-image:  url('https://docs.google.com/uc?export=download&id=1kKCzl2X7SUzVUOevvwrCa1zOev70STeB');">
+		<div class="title-text">
+			<h1>{{title}}</h1>
+		</div>
+	</section>
+-->
+
+{% block body %}
+	
+
+	{% if request.user.is_authenticated == True and posts.user == request.user.username %}
+
+		<div>
+			<form action="/blog/{{posts.title}}/edit", method="post">
+				<input id="bt" type="submit" value="Edit">
+			</form>
+		</div>
+
+		<div>
+			<form action="/blog/{{posts.title}}/delete", method="post">
+				<input id="bt" type="submit" value="Delete">
+			</form>
+		</div>
+
+	{% endif %}
+
+	<section>
+		<div class="content">
+			<p class="matter">{{ posts.post|safe}}</p>
+		</div>
+
+	</section>
+	<hr style="width: 100%">
+
+{% endblock body%}
