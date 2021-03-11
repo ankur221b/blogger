@@ -25,7 +25,7 @@ SECRET_KEY = 'z#cq5la@bu_7!zz3f5c!n_pe@*n096&k1wsjdg_9jtk2ui@fz('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['blogger-ankur221b.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['blogger-ankur221b.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+
 ]
 
 ROOT_URLCONF = 'new.urls'
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'new.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,8 +80,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'bloguser',
-        'CLIENT':{
-            'host':'mongodb://ank:ank@bloguser-shard-00-00.pn2kx.mongodb.net:27017,bloguser-shard-00-01.pn2kx.mongodb.net:27017,bloguser-shard-00-02.pn2kx.mongodb.net:27017/bloguser?ssl=true&replicaSet=atlas-4o9g4d-shard-0&authSource=admin&retryWrites=true&w=majority'
+        'CLIENT': {
+            'host': 'mongodb://ank:ank@bloguser-shard-00-00.pn2kx.mongodb.net:27017,bloguser-shard-00-01.pn2kx.mongodb.net:27017,bloguser-shard-00-02.pn2kx.mongodb.net:27017/bloguser?ssl=true&replicaSet=atlas-4o9g4d-shard-0&authSource=admin&retryWrites=true&w=majority'
         }
     }
 }
@@ -125,9 +125,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = None
-
